@@ -55,7 +55,7 @@ export function MaterialCombobox({
           autoFocus={autoFocus}
           className="h-11 w-full justify-between text-base font-normal sm:h-9 sm:text-sm"
         >
-          <span className={cn('truncate', !selected && 'text-[--muted-foreground]')}>
+          <span className={cn('truncate', !selected && 'text-muted-foreground')}>
             {selected ? selected.name : 'Search materials…'}
           </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -88,7 +88,7 @@ export function MaterialCombobox({
                   />
                   <span className="flex-1 truncate">{option.name}</span>
                   <Badge variant="outline">{option.category}</Badge>
-                  <span className="w-24 text-right text-xs tabular-nums text-[--muted-foreground]">
+                  <span className="w-24 text-right text-xs tabular-nums text-muted-foreground">
                     {option.material.weight_per_piece === null
                       ? `${fmt(option.material.weight_per_m)} kg/m`
                       : `${fmt(option.material.weight_per_piece)} kg/pc`}

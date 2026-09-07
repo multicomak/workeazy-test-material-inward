@@ -143,7 +143,7 @@ export function InwardForm({ materials }: { materials: InwardMaterial[] }) {
               onChange={(id) => set('material_id', id)}
               autoFocus
             />
-            <p className="text-xs text-[--muted-foreground]">
+            <p className="text-xs text-muted-foreground">
               Can&apos;t find it?{' '}
               <Link
                 href={`/materials/new${material ? `?category=${material.category}` : ''}`}
@@ -226,22 +226,22 @@ export function InwardForm({ materials }: { materials: InwardMaterial[] }) {
       </div>
 
       <aside className="grid content-start gap-4 lg:sticky lg:top-16 lg:self-start">
-        <Card className="bg-[--muted]/60">
+        <Card className="bg-muted/60">
           <CardHeader>
             <CardTitle>Calculation · derived</CardTitle>
           </CardHeader>
           <CardContent>
             {!material ? (
-              <p className="text-sm text-[--muted-foreground]">Pick a material to start.</p>
+              <p className="text-sm text-muted-foreground">Pick a material to start.</p>
             ) : calc === null ? (
-              <p className="text-sm text-[--muted-foreground]">
+              <p className="text-sm text-muted-foreground">
                 Enter the weighbridge weight and the {coil ? 'coil' : 'piece'} count.
               </p>
             ) : calc.kind === 'coil' ? (
               <dl className="grid gap-3">
                 <Row label="Weight / m" value={`${fmt(calc.weightPerM, 4)} kg`} />
                 <Row label="Calculated length" value={`${fmt(calc.calcLengthM)} m`} strong />
-                <p className="text-xs text-[--muted-foreground]">
+                <p className="text-xs text-muted-foreground">
                   Coils have no theoretical weight to compare against, so no tolerance check
                   applies.
                 </p>
@@ -275,7 +275,7 @@ export function InwardForm({ materials }: { materials: InwardMaterial[] }) {
         </Card>
 
         {mismatch ? (
-          <div className="rounded-md border border-[--destructive]/40 bg-[--destructive]/10 px-3 py-2 text-sm text-[--destructive]">
+          <div className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
             Length differs from Master ({mismatch.master} m). Create a {mismatch.actual} m SKU
             first —{' '}
             <Link
@@ -289,7 +289,7 @@ export function InwardForm({ materials }: { materials: InwardMaterial[] }) {
         ) : null}
 
         {error ? (
-          <div className="rounded-md border border-[--destructive]/40 bg-[--destructive]/10 px-3 py-2 text-sm text-[--destructive]">
+          <div className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
             {error}
           </div>
         ) : null}
@@ -322,7 +322,7 @@ function Field({
       <div className="relative">
         {children}
         {suffix ? (
-          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[--muted-foreground]">
+          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground">
             {suffix}
           </span>
         ) : null}
@@ -334,7 +334,7 @@ function Field({
 function Row({ label, value, strong }: { label: string; value: string; strong?: boolean }) {
   return (
     <div className="flex items-baseline justify-between gap-3">
-      <dt className="text-xs text-[--muted-foreground]">{label}</dt>
+      <dt className="text-xs text-muted-foreground">{label}</dt>
       <dd className={strong ? 'tabular-nums text-lg font-semibold' : 'tabular-nums text-sm'}>
         {value}
       </dd>

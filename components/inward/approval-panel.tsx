@@ -43,7 +43,7 @@ export function ApprovalPanel({ id }: { id: string }) {
     <Card className="border-amber-600/40">
       <CardHeader>
         <CardTitle className="text-amber-700 dark:text-amber-400">Manager decision</CardTitle>
-        <p className="text-xs text-[--muted-foreground]">
+        <p className="text-xs text-muted-foreground">
           This entry is outside tolerance and is not counted as stock until it is approved.
         </p>
       </CardHeader>
@@ -59,12 +59,12 @@ export function ApprovalPanel({ id }: { id: string }) {
             }}
             placeholder="e.g. Weighbridge slip verified against supplier invoice; short weight accepted."
           />
-          <span className="text-[11px] text-[--muted-foreground]">
+          <span className="text-[11px] text-muted-foreground">
             {reason.trim().length}/{MIN_REASON}
           </span>
         </div>
 
-        {error ? <p className="text-sm text-[--destructive]">{error}</p> : null}
+        {error ? <p className="text-sm text-destructive">{error}</p> : null}
 
         <div className="flex gap-2">
           <Button disabled={pending || tooShort} onClick={() => decide('approve')}>

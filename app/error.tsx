@@ -15,13 +15,13 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <Card className="border-[--destructive]/40">
+    <Card className="border-destructive/40">
       <CardHeader>
-        <CardTitle className="text-[--destructive]">Something went wrong</CardTitle>
+        <CardTitle className="text-destructive">Something went wrong</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-3">
         <p className="font-mono text-sm">{error.message}</p>
-        <p className="text-sm text-[--muted-foreground]">
+        <p className="text-sm text-muted-foreground">
           If this is the first run, check that the migrations in{' '}
           <code className="font-mono">supabase/migrations/</code> have been applied and that the
           Supabase URL and anon key are set.

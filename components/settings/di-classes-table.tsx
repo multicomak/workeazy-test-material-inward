@@ -70,7 +70,7 @@ export function DiClassesTable({ rows }: { rows: DiPipeClassRow[] }) {
     <div className="grid gap-4">
       <form
         onSubmit={add}
-        className="flex flex-wrap items-end gap-2 rounded-lg border bg-[--muted]/40 p-3"
+        className="flex flex-wrap items-end gap-2 rounded-lg border bg-muted/40 p-3"
       >
         <div className="grid gap-1">
           <Label>OD</Label>
@@ -113,13 +113,13 @@ export function DiClassesTable({ rows }: { rows: DiPipeClassRow[] }) {
         <Button type="submit" size="sm" disabled={pending}>
           Add / update
         </Button>
-        <p className="w-full text-xs text-[--muted-foreground]">
+        <p className="w-full text-xs text-muted-foreground">
           Rows here override the class formula.
           {suggestion ? (
             <>
               {' '}
               Formula for {draft.class} at OD {draft.od_mm} would give{' '}
-              <span className="font-medium text-[--foreground]">{suggestion} mm</span>.
+              <span className="font-medium text-foreground">{suggestion} mm</span>.
             </>
           ) : null}
         </p>
@@ -194,7 +194,7 @@ export function DiClassesTable({ rows }: { rows: DiPipeClassRow[] }) {
             })}
             {rows.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={4} className="py-8 text-center text-[--muted-foreground]">
+                <TableCell colSpan={4} className="py-8 text-center text-muted-foreground">
                   No rows yet — every DI pipe falls back to its class formula.
                 </TableCell>
               </TableRow>

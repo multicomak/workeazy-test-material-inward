@@ -21,7 +21,7 @@ export function WeightCard({ category, state }: Props) {
   const def = getCategory(category);
 
   return (
-    <Card className="bg-[--muted]/60">
+    <Card className="bg-muted/60">
       <CardHeader className="flex-row items-center justify-between">
         <CardTitle>Weight · derived</CardTitle>
         {state.ok ? (
@@ -35,27 +35,27 @@ export function WeightCard({ category, state }: Props) {
           <>
             <dl className="grid grid-cols-2 gap-3">
               <div>
-                <dt className="text-xs text-[--muted-foreground]">Weight / m</dt>
+                <dt className="text-xs text-muted-foreground">Weight / m</dt>
                 <dd className="tabular-nums text-xl font-semibold">
                   {fmt(state.result.weightPerM, 4)}{' '}
-                  <span className="text-sm font-normal text-[--muted-foreground]">kg/m</span>
+                  <span className="text-sm font-normal text-muted-foreground">kg/m</span>
                 </dd>
               </div>
               {def.hasLength ? (
                 <div>
-                  <dt className="text-xs text-[--muted-foreground]">Weight / piece</dt>
+                  <dt className="text-xs text-muted-foreground">Weight / piece</dt>
                   <dd className="tabular-nums text-xl font-semibold">
                     {fmt(state.result.weightPerPiece, 3)}{' '}
-                    <span className="text-sm font-normal text-[--muted-foreground]">kg</span>
+                    <span className="text-sm font-normal text-muted-foreground">kg</span>
                   </dd>
                 </div>
               ) : null}
             </dl>
 
             {def.sectionType && state.result.resolvedDesignation ? (
-              <p className="mt-3 text-xs text-[--muted-foreground]">
+              <p className="mt-3 text-xs text-muted-foreground">
                 IS 808 section:{' '}
-                <span className="font-medium text-[--foreground]">
+                <span className="font-medium text-foreground">
                   {def.sectionType} {state.result.resolvedDesignation}
                 </span>
                 {state.result.source === 'angle_formula' ? (
@@ -71,9 +71,9 @@ export function WeightCard({ category, state }: Props) {
             ) : null}
 
             {category === 'di_pipe' && state.result.resolvedThicknessMm !== undefined ? (
-              <p className="mt-3 text-xs text-[--muted-foreground]">
+              <p className="mt-3 text-xs text-muted-foreground">
                 Wall thickness:{' '}
-                <span className="font-medium text-[--foreground]">
+                <span className="font-medium text-foreground">
                   {fmt(state.result.resolvedThicknessMm)} mm
                 </span>
                 {state.result.source === 'di_formula' ? (
@@ -94,8 +94,8 @@ export function WeightCard({ category, state }: Props) {
           <p
             className={
               state.error.code === 'is808_missing'
-                ? 'text-sm text-[--destructive]'
-                : 'text-sm text-[--muted-foreground]'
+                ? 'text-sm text-destructive'
+                : 'text-sm text-muted-foreground'
             }
           >
             {state.error.code === 'is808_missing' ? (

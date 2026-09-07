@@ -26,7 +26,7 @@ export function SpecGrid({
   const def = getCategory(material.category);
 
   return (
-    <Card className="bg-[--muted]/60">
+    <Card className="bg-muted/60">
       <CardHeader className="flex-row items-center justify-between">
         <CardTitle>Specs from master · read-only</CardTitle>
         <Badge variant={isApproximate(material.weight_source) ? 'amber' : 'blue'}>
@@ -65,7 +65,7 @@ export function SpecGrid({
 function Item({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-[11px] uppercase tracking-wide text-[--muted-foreground]">{label}</dt>
+      <dt className="text-[11px] uppercase tracking-wide text-muted-foreground">{label}</dt>
       <dd className="tabular-nums text-sm font-medium">{value}</dd>
     </div>
   );

@@ -14,7 +14,7 @@ export function PageHeader({
       <div>
         <h1 className="text-lg font-semibold tracking-tight">{title}</h1>
         {subtitle ? (
-          <p className="mt-0.5 text-sm text-[--muted-foreground]">{subtitle}</p>
+          <p className="mt-0.5 text-sm text-muted-foreground">{subtitle}</p>
         ) : null}
       </div>
       {actions ? <div className="flex items-center gap-2">{actions}</div> : null}
@@ -35,7 +35,7 @@ export function EmptyState({
     <div className="flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed px-6 py-14 text-center">
       <p className="text-sm font-medium">{title}</p>
       {description ? (
-        <p className="max-w-md text-sm text-[--muted-foreground]">{description}</p>
+        <p className="max-w-md text-sm text-muted-foreground">{description}</p>
       ) : null}
       {action ? <div className="mt-2">{action}</div> : null}
     </div>

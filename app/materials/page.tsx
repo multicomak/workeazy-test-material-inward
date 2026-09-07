@@ -116,11 +116,11 @@ export default async function MaterialsPage({
                         {m.name}
                       </Link>
                     </TableCell>
-                    <TableCell className="text-[--muted-foreground]">
+                    <TableCell className="text-muted-foreground">
                       {getCategory(m.category).label}
                     </TableCell>
-                    <TableCell className="text-[--muted-foreground]">{m.grade ?? '—'}</TableCell>
-                    <TableCell className="text-[--muted-foreground]">{m.brand ?? '—'}</TableCell>
+                    <TableCell className="text-muted-foreground">{m.grade ?? '—'}</TableCell>
+                    <TableCell className="text-muted-foreground">{m.brand ?? '—'}</TableCell>
                     <TableCell className="text-right">{fmt(m.weight_per_piece, 3)}</TableCell>
                     <TableCell className="text-right">{fmt(kg)}</TableCell>
                     <TableCell className="text-right">

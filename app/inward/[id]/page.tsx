@@ -102,7 +102,7 @@ export default async function InwardDetailPage({
                   />
                 </dl>
                 <div>
-                  <p className="text-[11px] uppercase tracking-wide text-[--muted-foreground]">
+                  <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
                     Reason
                   </p>
                   <p className="text-sm">{entry.approval_reason}</p>
@@ -113,7 +113,7 @@ export default async function InwardDetailPage({
         </div>
 
         <aside className="grid content-start gap-4">
-          <Card className="bg-[--muted]/60">
+          <Card className="bg-muted/60">
             <CardHeader>
               <CardTitle>Calculation · derived</CardTitle>
             </CardHeader>
@@ -125,7 +125,7 @@ export default async function InwardDetailPage({
                     value={material ? `${fmt(material.weight_per_m, 4)} kg` : '—'}
                   />
                   <Row label="Calculated length" value={`${fmt(entry.calc_length_m)} m`} strong />
-                  <p className="text-xs text-[--muted-foreground]">
+                  <p className="text-xs text-muted-foreground">
                     Coils carry no tolerance check.
                   </p>
                 </dl>
@@ -149,7 +149,7 @@ export default async function InwardDetailPage({
                     }
                     strong
                   />
-                  <p className="text-xs text-[--muted-foreground]">
+                  <p className="text-xs text-muted-foreground">
                     Accepted band is ±{TOLERANCE_PCT}%.
                   </p>
                 </dl>
@@ -168,7 +168,7 @@ export default async function InwardDetailPage({
                   ⚠ Not in stock until a manager approves it.
                 </p>
               ) : (
-                <p className="text-[--destructive]">✕ Rejected — not counted in stock.</p>
+                <p className="text-destructive">✕ Rejected — not counted in stock.</p>
               )}
             </CardContent>
           </Card>
@@ -183,7 +183,7 @@ export default async function InwardDetailPage({
 function Item({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-[11px] uppercase tracking-wide text-[--muted-foreground]">{label}</dt>
+      <dt className="text-[11px] uppercase tracking-wide text-muted-foreground">{label}</dt>
       <dd className="tabular-nums text-sm font-medium">{value}</dd>
     </div>
   );
@@ -192,7 +192,7 @@ function Item({ label, value }: { label: string; value: string }) {
 function Row({ label, value, strong }: { label: string; value: string; strong?: boolean }) {
   return (
     <div className="flex items-baseline justify-between gap-3">
-      <dt className="text-xs text-[--muted-foreground]">{label}</dt>
+      <dt className="text-xs text-muted-foreground">{label}</dt>
       <dd className={strong ? 'tabular-nums text-lg font-semibold' : 'tabular-nums text-sm'}>
         {value}
       </dd>

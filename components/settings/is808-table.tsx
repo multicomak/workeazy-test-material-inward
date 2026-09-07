@@ -70,7 +70,7 @@ export function Is808Table({ rows }: { rows: Is808Row[] }) {
     <div className="grid gap-4">
       <form
         onSubmit={add}
-        className="flex flex-wrap items-end gap-2 rounded-lg border bg-[--muted]/40 p-3"
+        className="flex flex-wrap items-end gap-2 rounded-lg border bg-muted/40 p-3"
       >
         <div className="grid gap-1">
           <Label>Section type</Label>
@@ -113,7 +113,7 @@ export function Is808Table({ rows }: { rows: Is808Row[] }) {
         <Button type="submit" size="sm" disabled={pending}>
           Add / update
         </Button>
-        <p className="w-full text-xs text-[--muted-foreground]">
+        <p className="w-full text-xs text-muted-foreground">
           Store the bare size only — <code className="font-mono">100</code> for ISMC/ISMB/ISWB,{' '}
           <code className="font-mono">{'{a}x{b}x{t}'}</code> with the longer leg first for ISA.
         </p>
@@ -134,7 +134,7 @@ export function Is808Table({ rows }: { rows: Is808Row[] }) {
             ))}
           </SelectContent>
         </Select>
-        <span className="text-xs text-[--muted-foreground]">{visible.length} sections</span>
+        <span className="text-xs text-muted-foreground">{visible.length} sections</span>
       </div>
 
       <div className="rounded-lg border">
@@ -209,7 +209,7 @@ export function Is808Table({ rows }: { rows: Is808Row[] }) {
             })}
             {visible.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={4} className="py-8 text-center text-[--muted-foreground]">
+                <TableCell colSpan={4} className="py-8 text-center text-muted-foreground">
                   No sections for this type yet.
                 </TableCell>
               </TableRow>
@@ -217,7 +217,7 @@ export function Is808Table({ rows }: { rows: Is808Row[] }) {
           </TableBody>
         </Table>
       </div>
-      <p className="text-xs text-[--muted-foreground]">
+      <p className="text-xs text-muted-foreground">
         Editing a section does not restate materials already saved — their weight was frozen at
         save time and is recomputed the next time they are edited. Total: {fmt(rows.length, 0)}{' '}
         rows.

@@ -116,16 +116,16 @@ export default async function InwardPage({
                         {entry.mrn_no}
                       </Link>
                     </TableCell>
-                    <TableCell className="text-[--muted-foreground]">
+                    <TableCell className="text-muted-foreground">
                       {formatDate(entry.created_at)}
                     </TableCell>
                     <TableCell>
                       {entry.materials ? buildDisplayName(entry.materials) : '—'}
                     </TableCell>
-                    <TableCell className="text-[--muted-foreground]">
+                    <TableCell className="text-muted-foreground">
                       {entry.supplier ?? '—'}
                     </TableCell>
-                    <TableCell className="text-[--muted-foreground]">
+                    <TableCell className="text-muted-foreground">
                       {entry.vehicle_no ?? '—'}
                     </TableCell>
                     <TableCell className="text-right">{fmt(entry.actual_weight_kg)}</TableCell>
@@ -133,7 +133,7 @@ export default async function InwardPage({
                     <TableCell
                       className={
                         pct === null
-                          ? 'text-right text-[--muted-foreground]'
+                          ? 'text-right text-muted-foreground'
                           : Math.abs(Number(pct)) > 5
                             ? 'text-right text-amber-700 dark:text-amber-400'
                             : 'text-right'

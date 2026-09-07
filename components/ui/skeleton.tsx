@@ -1,13 +1,13 @@
 import { cn } from '@/lib/utils';
 
 export function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn('animate-pulse rounded-md bg-[--muted]', className)} {...props} />;
+  return <div className={cn('animate-pulse rounded-md bg-muted', className)} {...props} />;
 }
 
 export function TableSkeleton({ columns, rows = 6 }: { columns: number; rows?: number }) {
   return (
     <div className="rounded-lg border">
-      <div className="flex h-8 items-center gap-3 border-b bg-[--muted]/40 px-3">
+      <div className="flex h-8 items-center gap-3 border-b bg-muted/40 px-3">
         {Array.from({ length: columns }).map((_, i) => (
           <Skeleton key={i} className="h-2.5 flex-1" />
         ))}

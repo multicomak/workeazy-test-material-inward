@@ -215,7 +215,7 @@ export function MaterialForm({
         <Card>
           <CardHeader>
             <CardTitle>Technical specs</CardTitle>
-            <p className="text-xs text-[--muted-foreground]">
+            <p className="text-xs text-muted-foreground">
               Every spec is part of the SKU. Changing any one of them is a different material.
             </p>
           </CardHeader>
@@ -234,7 +234,7 @@ export function MaterialForm({
                       </SelectTrigger>
                       <SelectContent>
                         {options.length === 0 ? (
-                          <div className="px-2 py-3 text-xs text-[--muted-foreground]">
+                          <div className="px-2 py-3 text-xs text-muted-foreground">
                             No sections seeded yet.
                           </div>
                         ) : (
@@ -261,7 +261,7 @@ export function MaterialForm({
                       value={values.specs[field.name] ?? ''}
                       onChange={(e) => setSpec(field.name, e.target.value)}
                     />
-                    <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[--muted-foreground]">
+                    <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground">
                       {field.unit}
                     </span>
                   </div>
@@ -269,7 +269,7 @@ export function MaterialForm({
               );
             })}
             {!def.hasLength ? (
-              <p className="col-span-full text-xs text-[--muted-foreground]">
+              <p className="col-span-full text-xs text-muted-foreground">
                 Coils have no length in the master — it is derived at inward from the actual weight.
               </p>
             ) : null}
@@ -279,7 +279,7 @@ export function MaterialForm({
         <Card>
           <CardHeader>
             <CardTitle>Units</CardTitle>
-            <p className="text-xs text-[--muted-foreground]">
+            <p className="text-xs text-muted-foreground">
               Prefilled from the category. You can untick, but not add units outside its set.
             </p>
           </CardHeader>
@@ -325,7 +325,7 @@ export function MaterialForm({
         </Card>
 
         {formError ? (
-          <div className="rounded-md border border-[--destructive]/40 bg-[--destructive]/10 px-3 py-2 text-sm text-[--destructive]">
+          <div className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
             {formError.message}
             {formError.duplicateId ? (
               <>
@@ -347,7 +347,7 @@ export function MaterialForm({
           </Button>
         </div>
         {!weightState.ok ? (
-          <p className="text-xs text-[--muted-foreground]">
+          <p className="text-xs text-muted-foreground">
             Saving is blocked until the specs produce a weight.
           </p>
         ) : null}
@@ -369,7 +369,7 @@ function FieldWrap({
     <div className="grid gap-1">
       <Label>{label}</Label>
       {children}
-      {hint ? <span className="text-[11px] text-[--muted-foreground]">{hint}</span> : null}
+      {hint ? <span className="text-[11px] text-muted-foreground">{hint}</span> : null}
     </div>
   );
 }
@@ -405,7 +405,7 @@ function UnitGroup({
 }) {
   return (
     <div>
-      <p className="mb-2 text-xs font-medium text-[--muted-foreground]">{title}</p>
+      <p className="mb-2 text-xs font-medium text-muted-foreground">{title}</p>
       <div className="flex flex-wrap gap-3">
         {allowed.map((unit) => (
           <label key={unit} className="flex items-center gap-1.5 text-sm">
@@ -414,7 +414,7 @@ function UnitGroup({
               onCheckedChange={(c) => onToggle(unit, c === true)}
             />
             {unit}
-            <span className="text-xs text-[--muted-foreground]">({UNIT_LABEL[unit]})</span>
+            <span className="text-xs text-muted-foreground">({UNIT_LABEL[unit]})</span>
           </label>
         ))}
       </div>
