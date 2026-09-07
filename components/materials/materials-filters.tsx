@@ -31,10 +31,12 @@ export function MaterialsFilters({ category, q }: { category?: string; q?: strin
   );
 
   React.useEffect(() => {
-    const t = setTimeout(() => push('q', term.trim() || null), 250);
+    const next = term.trim();
+    // Don't rewrite the URL on mount when nothing has actually changed.
+    if (next === (searchParams.get('q') ?? '')) return;
+    const t = setTimeout(() => push('q', next || null), 250);
     return () => clearTimeout(t);
-    // `push` is stable per search params; term is the only real trigger.
-  }, [term, push]);
+  }, [term, push, searchParams]);
 
   return (
     <div className="flex flex-wrap items-center gap-2">

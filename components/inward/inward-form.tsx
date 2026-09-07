@@ -169,7 +169,7 @@ export function InwardForm({ materials }: { materials: InwardMaterial[] }) {
                 step="0.001"
                 min="0"
                 inputMode="decimal"
-                className="pr-9"
+                className="h-11 pr-9 text-base sm:h-9 sm:text-sm"
                 value={values.actual_weight_kg}
                 onChange={(e) => set('actual_weight_kg', e.target.value)}
               />
@@ -180,6 +180,7 @@ export function InwardForm({ materials }: { materials: InwardMaterial[] }) {
                 step="1"
                 min="1"
                 inputMode="numeric"
+                className="h-11 text-base sm:h-9 sm:text-sm"
                 value={values.pieces}
                 onChange={(e) => set('pieces', e.target.value)}
               />
@@ -191,7 +192,7 @@ export function InwardForm({ materials }: { materials: InwardMaterial[] }) {
                   step="0.001"
                   min="0"
                   inputMode="decimal"
-                  className="pr-9"
+                  className="h-11 pr-9 text-base sm:h-9 sm:text-sm"
                   value={values.actual_length_m}
                   onChange={(e) => set('actual_length_m', e.target.value)}
                   aria-invalid={Boolean(mismatch)}
@@ -200,25 +201,31 @@ export function InwardForm({ materials }: { materials: InwardMaterial[] }) {
             ) : null}
             <Field label="Supplier">
               <Input
+                className="h-11 text-base sm:h-9 sm:text-sm"
                 value={values.supplier}
                 onChange={(e) => set('supplier', e.target.value)}
               />
             </Field>
             <Field label="Vehicle no.">
               <Input
+                className="h-11 text-base sm:h-9 sm:text-sm"
                 value={values.vehicle_no}
                 onChange={(e) => set('vehicle_no', e.target.value)}
                 placeholder="MH 12 AB 1234"
               />
             </Field>
             <Field label="Batch no.">
-              <Input value={values.batch_no} onChange={(e) => set('batch_no', e.target.value)} />
+              <Input
+                className="h-11 text-base sm:h-9 sm:text-sm"
+                value={values.batch_no}
+                onChange={(e) => set('batch_no', e.target.value)}
+              />
             </Field>
           </CardContent>
         </Card>
       </div>
 
-      <aside className="grid content-start gap-4">
+      <aside className="grid content-start gap-4 lg:sticky lg:top-16 lg:self-start">
         <Card className="bg-[--muted]/60">
           <CardHeader>
             <CardTitle>Calculation · derived</CardTitle>
@@ -288,10 +295,10 @@ export function InwardForm({ materials }: { materials: InwardMaterial[] }) {
         ) : null}
 
         <div className="flex gap-2">
-          <Button type="submit" className="flex-1" disabled={!canSubmit}>
+          <Button type="submit" className="h-11 flex-1 sm:h-9" disabled={!canSubmit}>
             {saving ? 'Saving…' : 'Save entry'}
           </Button>
-          <Button type="button" variant="outline" asChild>
+          <Button type="button" variant="outline" className="h-11 sm:h-9" asChild>
             <Link href="/inward">Cancel</Link>
           </Button>
         </div>

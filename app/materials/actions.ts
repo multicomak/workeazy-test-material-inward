@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
 import { getLookups } from '@/lib/data/lookups';
-import { findMaterialBySpecKey } from '@/lib/data/materials';
+import { findMaterialBySpecKey, getMaterial } from '@/lib/data/materials';
 import { parseMaterialInput } from '@/lib/steel/schemas';
 import { buildSpecKey, canonicalSpecs } from '@/lib/steel/specKey';
 import { computeWeight, WeightError } from '@/lib/steel/weight';
@@ -25,6 +25,16 @@ export async function saveMaterial(
   const parsed = parseMaterialInput(raw);
   if (!parsed.success) return { ok: false, error: parsed.error };
   const input = parsed.data;
+
+  if (materialId) {
+    // Category is locked after creation: it decides the spec schema and the weight
+    // method, so changing it would silently redefine an existing SKU.
+    const existing = await getMaterial(materialId);
+    if (!existing) return { ok: false, error: 'Material not found.' };
+    if (existing.category !== input.category) {
+      return { ok: false, error: 'A material\u2019s category cannot be changed.' };
+    }
+  }
 
   const specs = canonicalSpecs(input.category, input.specs);
   const specKey = buildSpecKey(input.category, specs);

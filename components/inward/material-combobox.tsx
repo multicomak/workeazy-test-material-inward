@@ -53,7 +53,7 @@ export function MaterialCombobox({
           role="combobox"
           aria-expanded={open}
           autoFocus={autoFocus}
-          className="w-full justify-between font-normal"
+          className="h-11 w-full justify-between text-base font-normal sm:h-9 sm:text-sm"
         >
           <span className={cn('truncate', !selected && 'text-[--muted-foreground]')}>
             {selected ? selected.name : 'Search materials…'}
